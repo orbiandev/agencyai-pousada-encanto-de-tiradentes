@@ -1,0 +1,1931 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Pousada Encanto de Tiradentes, no Centro de Tiradentes. Conheça as suítes e fale sobre disponibilidade."
+    >
+    <title>Pousada Encanto de Tiradentes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Afacad:wght@400;500;600&family=Besley:wght@500;600&display=swap"
+      rel="stylesheet"
+    >
+    <style>
+      :root {
+        --noite-serra: #1c2631;
+        --noite-profunda: #111a22;
+        --azulejo-lavado: #557884;
+        --nevoa-manha: #dce8e7;
+        --cal-fria: #f5f7f4;
+        --latao-fosco: #b68a45;
+        --latao-claro: #d6b77f;
+        --tinta: #151a1d;
+        --branco: #fbfdfc;
+        --font-display: "Besley", Georgia, "Times New Roman", serif;
+        --font-body: "Afacad", "Segoe UI", Arial, sans-serif;
+        color-scheme: dark;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        background: var(--noite-serra);
+        color: var(--branco);
+        font-family: var(--font-body);
+        font-size: 1rem;
+        line-height: 1.5;
+        text-rendering: optimizeLegibility;
+      }
+
+      a,
+      button {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--latao-claro);
+        outline-offset: 4px;
+      }
+
+      .skip-link {
+        position: fixed;
+        z-index: 100;
+        top: 0.75rem;
+        left: 0.75rem;
+        padding: 0.7rem 1rem;
+        border-radius: 0.25rem;
+        background: var(--cal-fria);
+        color: var(--tinta);
+        font-weight: 600;
+        transform: translateY(-160%);
+        transition: transform 180ms ease;
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .site-shell {
+        position: relative;
+        min-height: 100svh;
+        overflow: hidden;
+        isolation: isolate;
+        background: var(--noite-serra);
+      }
+
+      .site-header {
+        position: absolute;
+        z-index: 20;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(251, 253, 252, 0.2);
+      }
+
+      .header-inner {
+        width: min(100% - 3rem, 88rem);
+        min-height: 5.4rem;
+        margin-inline: auto;
+        display: grid;
+        grid-template-columns: minmax(15rem, 1fr) auto auto;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .brand {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 0.8rem;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        width: 2.15rem;
+        height: 2.15rem;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(214, 183, 127, 0.72);
+        border-radius: 50% 50% 50% 0.4rem;
+        color: var(--latao-claro);
+        font-family: var(--font-display);
+        font-size: 0.95rem;
+        transform: rotate(-4deg);
+      }
+
+      .brand-name {
+        max-width: 15rem;
+        font-family: var(--font-display);
+        font-size: 0.98rem;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
+      .primary-nav ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: clamp(1rem, 2.2vw, 2rem);
+        list-style: none;
+      }
+
+      .primary-nav a {
+        color: rgba(251, 253, 252, 0.83);
+        font-weight: 500;
+        text-decoration: none;
+        text-underline-offset: 0.45rem;
+      }
+
+      .primary-nav a:hover {
+        color: var(--branco);
+        text-decoration: underline;
+        text-decoration-color: var(--latao-claro);
+      }
+
+      .header-contact {
+        display: inline-flex;
+        min-height: 2.8rem;
+        align-items: center;
+        justify-content: center;
+        padding: 0.65rem 1rem;
+        border: 1px solid rgba(251, 253, 252, 0.5);
+        border-radius: 0.25rem;
+        color: var(--branco);
+        font-weight: 600;
+        text-decoration: none;
+        transition: border-color 180ms ease, background-color 180ms ease;
+      }
+
+      .header-contact:hover {
+        border-color: var(--latao-claro);
+        background: rgba(28, 38, 49, 0.6);
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 100svh;
+        display: grid;
+        align-items: end;
+        padding: clamp(8.5rem, 18vh, 12rem) 0 0;
+      }
+
+      .hero-media,
+      .hero-scrim {
+        position: absolute;
+        inset: 0;
+      }
+
+      .hero-media {
+        z-index: -3;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 62% 48%;
+        background: var(--noite-serra)
+          url("assets/pexels-video-19528125-poster.jpg") center / cover no-repeat;
+      }
+
+      .hero-scrim {
+        z-index: -2;
+        background:
+          linear-gradient(90deg, rgba(13, 22, 29, 0.93) 0%, rgba(19, 31, 39, 0.79) 43%, rgba(22, 34, 42, 0.26) 76%),
+          linear-gradient(0deg, rgba(12, 21, 28, 0.9) 0%, rgba(12, 21, 28, 0.08) 45%, rgba(12, 21, 28, 0.32) 100%);
+      }
+
+      .hero-inner {
+        width: min(100% - 3rem, 88rem);
+        margin-inline: auto;
+        display: grid;
+        grid-template-columns: minmax(0, 5fr) minmax(17rem, 3fr);
+        grid-template-areas:
+          "content utility"
+          "rail rail";
+        column-gap: clamp(2rem, 8vw, 9rem);
+        align-items: end;
+      }
+
+      .hero-content {
+        grid-area: content;
+        max-width: 48rem;
+        padding-bottom: clamp(3rem, 8vh, 6rem);
+      }
+
+      .hero-location {
+        margin: 0 0 1.15rem;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        color: rgba(251, 253, 252, 0.88);
+        font-size: 1.04rem;
+        font-weight: 500;
+      }
+
+      .hero-location::before {
+        content: "";
+        width: 1.8rem;
+        height: 1px;
+        background: var(--latao-claro);
+      }
+
+      h1 {
+        max-width: 12ch;
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(2.75rem, 6.2vw, 5.75rem);
+        font-weight: 500;
+        letter-spacing: -0.045em;
+        line-height: 0.96;
+        text-wrap: balance;
+      }
+
+      .hero-lede {
+        max-width: 38rem;
+        margin: clamp(1.5rem, 3vh, 2rem) 0 0;
+        color: rgba(251, 253, 252, 0.86);
+        font-size: clamp(1.16rem, 1.8vw, 1.42rem);
+        line-height: 1.38;
+      }
+
+      .hero-actions {
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.85rem;
+      }
+
+      .button {
+        min-height: 3.25rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.65rem;
+        padding: 0.85rem 1.2rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+      }
+
+      .button-primary {
+        background: var(--cal-fria);
+        color: var(--tinta);
+      }
+
+      .button-primary:hover {
+        background: var(--nevoa-manha);
+      }
+
+      .button-secondary {
+        border-color: rgba(251, 253, 252, 0.48);
+        color: var(--branco);
+      }
+
+      .button-secondary:hover {
+        border-color: var(--latao-claro);
+        background: rgba(28, 38, 49, 0.5);
+      }
+
+      .hero-utility {
+        grid-area: utility;
+        padding-bottom: clamp(3rem, 8vh, 6rem);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1.05rem;
+        text-align: right;
+      }
+
+      .demo-disclosure {
+        max-width: 16rem;
+        margin: 0;
+        color: rgba(251, 253, 252, 0.64);
+        font-size: 0.9rem;
+      }
+
+      .media-toggle {
+        min-height: 2.75rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        padding: 0.55rem 0.8rem;
+        border: 1px solid rgba(251, 253, 252, 0.36);
+        border-radius: 999px;
+        background: rgba(17, 26, 34, 0.46);
+        color: var(--branco);
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+      }
+
+      .media-toggle:hover {
+        border-color: var(--latao-claro);
+      }
+
+      .media-toggle-icon {
+        width: 0.85rem;
+        height: 0.85rem;
+        display: inline-block;
+        border-left: 3px solid currentColor;
+        border-right: 3px solid currentColor;
+      }
+
+      .media-toggle[data-state="paused"] .media-toggle-icon {
+        border: 0;
+        border-top: 0.45rem solid transparent;
+        border-bottom: 0.45rem solid transparent;
+        border-left: 0.7rem solid currentColor;
+      }
+
+      .journey-rail {
+        grid-area: rail;
+        position: relative;
+        min-height: 5.5rem;
+        display: grid;
+        grid-template-columns: auto 1fr auto 1fr auto;
+        align-items: center;
+        gap: 1rem;
+        border-top: 1px solid rgba(251, 253, 252, 0.28);
+        color: rgba(251, 253, 252, 0.62);
+        font-size: 0.88rem;
+      }
+
+      .rail-line {
+        height: 1px;
+        background: rgba(251, 253, 252, 0.28);
+      }
+
+      .rail-label[aria-current="step"] {
+        color: var(--branco);
+      }
+
+      .key-tag {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: clamp(7rem, 22vw, 19rem);
+        min-width: 12rem;
+        padding: 0.58rem 1rem 0.62rem 1.35rem;
+        border: 1px solid rgba(17, 26, 34, 0.5);
+        border-radius: 0.25rem 1.5rem 1.5rem 0.25rem;
+        background: var(--latao-fosco);
+        color: var(--noite-profunda);
+        font-weight: 600;
+        line-height: 1.1;
+        transform: translateY(-50%);
+      }
+
+      .key-tag::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0.45rem;
+        width: 0.42rem;
+        height: 0.42rem;
+        border: 1px solid rgba(17, 26, 34, 0.65);
+        border-radius: 50%;
+        transform: translateY(-50%);
+      }
+
+      .content-section {
+        position: relative;
+        color: var(--tinta);
+      }
+
+      .section-inner {
+        width: min(100% - 3rem, 88rem);
+        margin-inline: auto;
+      }
+
+      .section-heading {
+        max-width: 52rem;
+      }
+
+      .section-heading h2 {
+        max-width: 13ch;
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(2.35rem, 4.2vw, 4.5rem);
+        font-weight: 500;
+        letter-spacing: -0.035em;
+        line-height: 1.02;
+        text-wrap: balance;
+      }
+
+      .section-heading p {
+        max-width: 42rem;
+        margin: 1.15rem 0 0;
+        color: rgba(21, 26, 29, 0.72);
+        font-size: clamp(1.05rem, 1.5vw, 1.22rem);
+      }
+
+      .suites-section {
+        padding: clamp(5rem, 10vw, 9rem) 0;
+        overflow: hidden;
+        background: var(--nevoa-manha);
+      }
+
+      .suites-section::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: max(1.5rem, calc((100vw - 88rem) / 2));
+        width: 1px;
+        height: 100%;
+        background: rgba(85, 120, 132, 0.24);
+      }
+
+      .suite-explorer {
+        margin-top: clamp(3rem, 7vw, 6rem);
+        display: grid;
+        grid-template-columns: minmax(0, 7fr) minmax(19rem, 5fr);
+        gap: clamp(2.5rem, 7vw, 7rem);
+        align-items: start;
+      }
+
+      .suite-list {
+        margin: 0;
+        padding: 0;
+        border-top: 1px solid rgba(21, 26, 29, 0.28);
+        list-style: none;
+      }
+
+      .suite-list li {
+        border-bottom: 1px solid rgba(21, 26, 29, 0.28);
+      }
+
+      .suite-option {
+        width: 100%;
+        min-height: 7.6rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 1.5rem;
+        align-items: center;
+        padding: 1.35rem 0;
+        border: 0;
+        background: transparent;
+        color: var(--tinta);
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .suite-option-name {
+        font-family: var(--font-display);
+        font-size: clamp(1.5rem, 2.6vw, 2.75rem);
+        font-weight: 500;
+        letter-spacing: -0.025em;
+        line-height: 1.08;
+      }
+
+      .suite-option-meta {
+        display: block;
+        margin-top: 0.45rem;
+        color: rgba(21, 26, 29, 0.62);
+        font-size: 0.98rem;
+      }
+
+      .suite-option-action {
+        min-width: 7.4rem;
+        padding: 0.62rem 0.85rem;
+        border: 1px solid rgba(21, 26, 29, 0.42);
+        border-radius: 0.25rem;
+        font-weight: 600;
+        text-align: center;
+        transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+      }
+
+      .suite-option:hover .suite-option-action,
+      .suite-option[aria-pressed="true"] .suite-option-action {
+        border-color: var(--noite-serra);
+        background: var(--noite-serra);
+        color: var(--branco);
+      }
+
+      .suite-option[aria-pressed="true"] .suite-option-name {
+        color: #3f6673;
+      }
+
+      .suite-detail {
+        position: sticky;
+        top: 2rem;
+        min-height: 28rem;
+        padding: clamp(1.75rem, 3vw, 2.75rem);
+        border-left: 0.35rem solid var(--latao-fosco);
+        background: var(--cal-fria);
+        box-shadow: 0 1.75rem 4rem rgba(28, 38, 49, 0.1);
+      }
+
+      .detail-key {
+        width: fit-content;
+        margin: 0 0 2.5rem;
+        padding: 0.5rem 1rem 0.55rem 1.4rem;
+        border-radius: 0.2rem 1.4rem 1.4rem 0.2rem;
+        background: var(--latao-fosco);
+        color: var(--noite-profunda);
+        font-weight: 600;
+      }
+
+      .detail-key::before {
+        content: "";
+        width: 0.42rem;
+        height: 0.42rem;
+        display: inline-block;
+        margin-right: 0.6rem;
+        border: 1px solid rgba(17, 26, 34, 0.7);
+        border-radius: 50%;
+        vertical-align: 0.1rem;
+      }
+
+      .suite-detail h3 {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(1.75rem, 3vw, 2.7rem);
+        font-weight: 500;
+        line-height: 1.08;
+      }
+
+      .suite-detail-copy {
+        margin: 1rem 0 0;
+        color: rgba(21, 26, 29, 0.72);
+      }
+
+      .suite-facts {
+        margin: 1.6rem 0 0;
+        padding: 0;
+        display: grid;
+        gap: 0;
+        list-style: none;
+      }
+
+      .suite-facts li {
+        padding: 0.65rem 0;
+        border-bottom: 1px solid rgba(21, 26, 29, 0.14);
+      }
+
+      .suite-detail-actions {
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .content-button {
+        min-height: 3rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.72rem 1rem;
+        border: 1px solid var(--noite-serra);
+        border-radius: 0.25rem;
+        background: var(--noite-serra);
+        color: var(--branco);
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .content-button:hover {
+        background: #304653;
+      }
+
+      .content-button-secondary {
+        background: transparent;
+        color: var(--tinta);
+      }
+
+      .content-button-secondary:hover {
+        background: rgba(85, 120, 132, 0.12);
+      }
+
+      .content-button:disabled {
+        border-color: rgba(21, 26, 29, 0.25);
+        background: transparent;
+        color: rgba(21, 26, 29, 0.42);
+        cursor: not-allowed;
+      }
+
+      .arrival-section {
+        padding: clamp(5rem, 9vw, 8rem) 0;
+        background: var(--cal-fria);
+      }
+
+      .arrival-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 7fr) minmax(18rem, 5fr);
+        gap: clamp(2rem, 6vw, 6rem);
+        align-items: center;
+      }
+
+      .place-photo-frame {
+        position: relative;
+        min-height: clamp(25rem, 48vw, 42rem);
+        overflow: hidden;
+        background: var(--nevoa-manha);
+      }
+
+      .place-photo {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
+        object-fit: cover;
+      }
+
+      .place-photo-caption {
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+        margin: 0;
+        padding: 0.55rem 0.75rem;
+        background: rgba(17, 26, 34, 0.82);
+        color: var(--branco);
+        font-size: 0.86rem;
+      }
+
+      .arrival-copy h2 {
+        max-width: 10ch;
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(2.35rem, 4.2vw, 4.5rem);
+        font-weight: 500;
+        letter-spacing: -0.035em;
+        line-height: 1.02;
+      }
+
+      .arrival-intro {
+        max-width: 33rem;
+        margin: 1.15rem 0 2.4rem;
+        color: rgba(21, 26, 29, 0.68);
+        font-size: 1.08rem;
+      }
+
+      .arrival-facts {
+        margin: 0;
+        display: grid;
+      }
+
+      .arrival-fact {
+        padding: 1rem 0;
+        display: grid;
+        grid-template-columns: minmax(7rem, 0.8fr) minmax(0, 1.4fr);
+        gap: 1rem;
+        border-top: 1px solid rgba(21, 26, 29, 0.2);
+      }
+
+      .arrival-fact dt {
+        font-weight: 600;
+      }
+
+      .arrival-fact dd {
+        margin: 0;
+        color: rgba(21, 26, 29, 0.72);
+      }
+
+      .planner-section {
+        padding: clamp(5rem, 10vw, 9rem) 0;
+        background: var(--nevoa-manha);
+      }
+
+      .planner-inner {
+        width: min(100% - 3rem, 48rem);
+        margin-inline: auto;
+      }
+
+      .planner-heading {
+        text-align: center;
+      }
+
+      .planner-heading h2 {
+        max-width: 14ch;
+        margin: 0 auto;
+        font-family: var(--font-display);
+        font-size: clamp(2.35rem, 4.2vw, 4.5rem);
+        font-weight: 500;
+        letter-spacing: -0.035em;
+        line-height: 1.02;
+        text-wrap: balance;
+      }
+
+      .planner-heading p {
+        max-width: 37rem;
+        margin: 1.15rem auto 0;
+        color: rgba(21, 26, 29, 0.7);
+        font-size: 1.08rem;
+      }
+
+      .planner-key {
+        width: fit-content;
+        margin: 2rem auto 0;
+        padding: 0.55rem 1rem 0.6rem 1.45rem;
+        border-radius: 0.2rem 1.5rem 1.5rem 0.2rem;
+        background: var(--latao-fosco);
+        color: var(--noite-profunda);
+        font-weight: 600;
+      }
+
+      .planner-form {
+        margin-top: 2.5rem;
+        padding: clamp(1.5rem, 4vw, 3rem);
+        background: var(--cal-fria);
+        box-shadow: 0 1.75rem 4rem rgba(28, 38, 49, 0.09);
+      }
+
+      .field-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.1rem;
+      }
+
+      .field {
+        display: grid;
+        gap: 0.45rem;
+      }
+
+      .field-full {
+        grid-column: 1 / -1;
+      }
+
+      .field label {
+        font-weight: 600;
+      }
+
+      .field input,
+      .field select {
+        width: 100%;
+        min-height: 3.15rem;
+        padding: 0.72rem 0.8rem;
+        border: 1px solid rgba(21, 26, 29, 0.34);
+        border-radius: 0.2rem;
+        background: var(--branco);
+        color: var(--tinta);
+        font: inherit;
+      }
+
+      .planner-message {
+        min-height: 1.5rem;
+        margin: 1rem 0 0;
+        color: #7c2d24;
+        font-weight: 600;
+      }
+
+      .planner-message[data-state="success"] {
+        color: #2f6158;
+      }
+
+      .planner-message[data-state="neutral"] {
+        color: rgba(21, 26, 29, 0.7);
+      }
+
+      .planner-submit {
+        width: 100%;
+        margin-top: 0.75rem;
+      }
+
+      .contact-summary {
+        margin-top: 1.5rem;
+        padding: clamp(1.5rem, 4vw, 3rem);
+        border: 1px solid rgba(85, 120, 132, 0.35);
+        background: rgba(245, 247, 244, 0.62);
+      }
+
+      .contact-summary h3 {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(1.65rem, 3vw, 2.35rem);
+        font-weight: 500;
+      }
+
+      .summary-empty,
+      .summary-details {
+        margin: 0.8rem 0 0;
+        color: rgba(21, 26, 29, 0.7);
+      }
+
+      .summary-details {
+        display: grid;
+        gap: 0.55rem;
+      }
+
+      .summary-details p {
+        margin: 0;
+      }
+
+      .summary-actions {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .contact-options {
+        margin-top: clamp(2rem, 5vw, 3.5rem);
+        padding-top: clamp(1.5rem, 4vw, 2.5rem);
+        border-top: 1px solid rgba(85, 120, 132, 0.35);
+      }
+
+      .contact-options h3 {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(1.45rem, 2.6vw, 2rem);
+        font-weight: 500;
+      }
+
+      .contact-options > p {
+        max-width: 56ch;
+        margin: 0.7rem auto 0;
+        color: rgba(21, 26, 29, 0.7);
+      }
+
+      .contact-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin: 1.5rem 0 0;
+        border-top: 1px solid rgba(21, 26, 29, 0.18);
+        border-bottom: 1px solid rgba(21, 26, 29, 0.18);
+        font-style: normal;
+        text-align: left;
+      }
+
+      .contact-item {
+        min-width: 0;
+        padding: 1.2rem;
+      }
+
+      .contact-item + .contact-item {
+        border-left: 1px solid rgba(21, 26, 29, 0.18);
+      }
+
+      .contact-label {
+        display: block;
+        margin-bottom: 0.35rem;
+        color: rgba(21, 26, 29, 0.62);
+        font-size: 0.86rem;
+      }
+
+      .contact-item a,
+      .footer-links a {
+        color: inherit;
+        text-underline-offset: 0.22em;
+        overflow-wrap: anywhere;
+      }
+
+      .site-footer {
+        padding: clamp(2rem, 5vw, 3.2rem) 0;
+        background: var(--noite-serra);
+        color: rgba(251, 253, 252, 0.82);
+      }
+
+      .footer-inner {
+        width: min(100% - 3rem, var(--page-max));
+        margin-inline: auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+
+      .footer-credit,
+      .footer-address {
+        margin: 0;
+      }
+
+      .footer-credit {
+        max-width: 34rem;
+        font-family: var(--font-display);
+        font-size: clamp(1.15rem, 2vw, 1.55rem);
+      }
+
+      .footer-address {
+        max-width: 31rem;
+        margin-top: 0.55rem;
+        color: rgba(251, 253, 252, 0.62);
+        font-size: 0.9rem;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.75rem 1.2rem;
+        font-size: 0.92rem;
+      }
+
+      [hidden] {
+        display: none !important;
+      }
+
+      @media (max-width: 70rem) {
+        .header-inner {
+          grid-template-columns: 1fr auto;
+        }
+
+        .primary-nav {
+          display: none;
+        }
+
+        .hero-inner {
+          grid-template-columns: minmax(0, 3fr) minmax(13rem, 1fr);
+          column-gap: 2rem;
+        }
+
+        .suite-explorer,
+        .arrival-layout {
+          gap: 2.5rem;
+        }
+      }
+
+      @media (max-width: 48rem) {
+        .header-inner,
+        .hero-inner,
+        .section-inner,
+        .planner-inner {
+          width: min(100% - 2rem, 42rem);
+        }
+
+        .header-inner {
+          min-height: 4.6rem;
+          grid-template-columns: minmax(0, 1fr) auto;
+          gap: 0.75rem;
+        }
+
+        .brand-mark {
+          width: 1.95rem;
+          height: 1.95rem;
+        }
+
+        .brand-name {
+          max-width: 11rem;
+          font-size: 0.88rem;
+        }
+
+        .header-contact {
+          display: none;
+        }
+
+        .menu-toggle {
+          min-height: 2.7rem;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.55rem;
+          padding: 0.55rem 0.75rem;
+          border: 1px solid rgba(251, 253, 252, 0.46);
+          border-radius: 0.25rem;
+          background: rgba(17, 26, 34, 0.35);
+          color: var(--branco);
+          cursor: pointer;
+        }
+
+        .menu-toggle::before {
+          content: "";
+          width: 1rem;
+          height: 0.65rem;
+          border-top: 1px solid currentColor;
+          border-bottom: 1px solid currentColor;
+        }
+
+        .primary-nav[data-open="true"] {
+          position: absolute;
+          top: calc(100% + 1px);
+          right: 1rem;
+          left: 1rem;
+          display: block;
+          padding: 0.6rem;
+          border: 1px solid rgba(251, 253, 252, 0.2);
+          background: rgba(17, 26, 34, 0.97);
+          box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3);
+        }
+
+        .primary-nav[data-open="true"] ul {
+          display: grid;
+          gap: 0;
+        }
+
+        .primary-nav[data-open="true"] a {
+          display: block;
+          padding: 0.75rem;
+        }
+
+        .hero {
+          min-height: max(46rem, 100svh);
+          padding-top: 7.5rem;
+        }
+
+        .hero-media {
+          object-position: 66% center;
+        }
+
+        .hero-scrim {
+          background:
+            linear-gradient(0deg, rgba(12, 21, 28, 0.94) 0%, rgba(15, 25, 33, 0.72) 58%, rgba(12, 21, 28, 0.5) 100%),
+            linear-gradient(90deg, rgba(12, 21, 28, 0.7) 0%, rgba(12, 21, 28, 0.12) 100%);
+        }
+
+        .hero-inner {
+          grid-template-columns: minmax(0, 1fr);
+          grid-template-areas:
+            "content"
+            "utility"
+            "rail";
+        }
+
+        .hero-content {
+          padding-bottom: 1rem;
+        }
+
+        h1 {
+          max-width: 10ch;
+          font-size: clamp(2.65rem, 13vw, 4.1rem);
+          line-height: 0.98;
+        }
+
+        .hero-lede {
+          max-width: 29rem;
+          margin-top: 1.25rem;
+          font-size: 1.12rem;
+        }
+
+        .hero-actions {
+          align-items: stretch;
+        }
+
+        .button {
+          flex: 1 1 100%;
+        }
+
+        .hero-utility {
+          padding: 1rem 0 2.4rem;
+          flex-direction: row-reverse;
+          align-items: center;
+          justify-content: space-between;
+          gap: 0.75rem;
+          text-align: left;
+        }
+
+        .demo-disclosure {
+          max-width: 12rem;
+          font-size: 0.78rem;
+          line-height: 1.3;
+        }
+
+        .media-toggle {
+          flex: 0 0 auto;
+        }
+
+        .journey-rail {
+          min-height: 8.2rem;
+          grid-template-columns: 1fr;
+          align-content: center;
+          justify-items: end;
+          gap: 0.25rem;
+          padding-left: 2.5rem;
+          border-top: 0;
+          border-left: 1px solid rgba(251, 253, 252, 0.28);
+        }
+
+        .rail-line {
+          display: none;
+        }
+
+        .key-tag {
+          top: 50%;
+          left: 0;
+          min-width: 10.8rem;
+          transform: translate(-0.55rem, -50%) rotate(-90deg) translateX(-30%);
+          transform-origin: left center;
+        }
+
+        .suite-explorer,
+        .arrival-layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .suite-explorer {
+          gap: 1.5rem;
+        }
+
+        .suite-option {
+          min-height: 6.5rem;
+          grid-template-columns: minmax(0, 1fr);
+          gap: 0.85rem;
+        }
+
+        .suite-option-action {
+          width: fit-content;
+          min-width: 0;
+        }
+
+        .suite-detail {
+          position: static;
+          min-height: 0;
+          box-shadow: none;
+        }
+
+        .arrival-layout {
+          gap: 2.5rem;
+        }
+
+        .place-photo-frame {
+          min-height: 24rem;
+        }
+
+        .arrival-fact {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 0.35rem;
+        }
+
+        .field-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .field-full {
+          grid-column: auto;
+        }
+
+        .summary-actions .content-button {
+          width: 100%;
+        }
+
+        .contact-list {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .contact-item + .contact-item {
+          border-top: 1px solid rgba(21, 26, 29, 0.18);
+          border-left: 0;
+        }
+
+        .footer-inner {
+          width: min(100% - 2rem, 42rem);
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .footer-links {
+          justify-content: flex-start;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+
+        .hero-media {
+          display: none;
+        }
+
+        .media-toggle {
+          display: none;
+        }
+
+        .site-shell {
+          background:
+            linear-gradient(90deg, rgba(13, 22, 29, 0.88), rgba(19, 31, 39, 0.35)),
+            url("assets/pexels-video-19528125-poster.jpg") 62% center / cover no-repeat;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a id="skip-to-suites" class="skip-link" href="#suites">Ir para as suítes</a>
+
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="header-inner">
+          <a class="brand" href="#hero" aria-label="Pousada Encanto de Tiradentes — início">
+            <span class="brand-mark" aria-hidden="true">E</span>
+            <span class="brand-name">Pousada Encanto de Tiradentes</span>
+          </a>
+
+          <nav id="primary-navigation" class="primary-nav" aria-label="Navegação principal" data-open="false">
+            <ul>
+              <li><a href="#suites">Suítes</a></li>
+              <li><a href="#antes-de-chegar">Antes de chegar</a></li>
+              <li><a href="#planejar">Planejar estadia</a></li>
+            </ul>
+          </nav>
+
+          <a
+            class="header-contact"
+            href="https://wa.me/5532999122612?text=Estou%20no%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Falar sobre disponibilidade</a>
+
+          <button
+            id="menu-toggle"
+            class="menu-toggle"
+            type="button"
+            aria-controls="primary-navigation"
+            aria-expanded="false"
+          >Menu</button>
+        </div>
+      </header>
+
+      <main>
+        <section
+          id="hero"
+          class="hero"
+          data-section-role="hero"
+          data-section-purpose="Identificar a pousada, sua localização e iniciar a exploração das suítes"
+          data-content-source="illustrative"
+          data-visual-section="true"
+        >
+          <video
+            id="hero-media"
+            class="hero-media"
+            data-site-visual
+            data-asset-id="pexels-video-19528125"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="assets/pexels-video-19528125-poster.jpg"
+            aria-hidden="true"
+            tabindex="-1"
+          >
+            <source src="assets/pexels-video-19528125.mp4" type="video/mp4">
+          </video>
+          <div class="hero-scrim" aria-hidden="true"></div>
+
+          <div class="hero-inner">
+            <div class="hero-content">
+              <p class="hero-location">Pousada no Centro de Tiradentes</p>
+              <h1>Pousada Encanto de Tiradentes</h1>
+              <p class="hero-lede">
+                Conheça as suítes e prepare seu contato sobre disponibilidade.
+              </p>
+              <div class="hero-actions">
+                <a
+                  id="whatsapp-contact"
+                  class="button button-primary"
+                  href="https://wa.me/5532999122612?text=Estou%20no%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Falar sobre disponibilidade
+                </a>
+                <a class="button button-secondary" href="#suites">
+                  Conhecer as suítes
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-utility">
+              <p class="demo-disclosure" data-demo-disclosure="true">
+                Prévia visual com conteúdo ilustrativo.
+              </p>
+              <button
+                id="media-toggle"
+                class="media-toggle"
+                type="button"
+                data-state="playing"
+                aria-controls="hero-media"
+                aria-pressed="false"
+              >
+                <span class="media-toggle-icon" aria-hidden="true"></span>
+                <span class="media-toggle-label">Pausar vídeo</span>
+              </button>
+            </div>
+
+            <div class="journey-rail" aria-label="Percurso da estadia">
+              <span id="journey-key-tag" class="key-tag" aria-live="polite">Conhecer as suítes</span>
+              <span class="rail-label" aria-current="step">Chegada</span>
+              <span class="rail-line" aria-hidden="true"></span>
+              <span class="rail-label">Escolha</span>
+              <span class="rail-line" aria-hidden="true"></span>
+              <span class="rail-label">Resumo para contato</span>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="suites"
+          class="content-section suites-section"
+          data-section-role="exploration"
+          data-section-purpose="Comparar categorias publicadas, abrir detalhes verificados e escolher uma suíte de interesse"
+          data-content-source="verified"
+          data-visual-section="true"
+          data-interactive-section="true"
+          data-visual-reference="ref-20260902-60a72a11"
+          tabindex="-1"
+        >
+          <div class="section-inner">
+            <div class="section-heading">
+              <h2>Quatro suítes, cada uma com seu jeito de receber</h2>
+              <p>
+                Compare as categorias publicadas pela pousada e escolha uma para levar ao planejamento da estadia.
+              </p>
+            </div>
+
+            <div class="suite-explorer">
+              <ul id="suite-list" class="suite-list" aria-label="Categorias de suíte">
+                <li>
+                  <button
+                    id="choose-suite-dupla-serra"
+                    class="suite-option"
+                    type="button"
+                    data-suite-id="suite-dupla-serra"
+                    aria-controls="suite-detail"
+                    aria-pressed="false"
+                  >
+                    <span>
+                      <span class="suite-option-name">Suíte dupla com vista para a serra</span>
+                      <span class="suite-option-meta">14 m² · cama de casal · sacada privativa</span>
+                    </span>
+                    <span class="suite-option-action">Ver detalhes</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    id="choose-suite-tripla-standard"
+                    class="suite-option"
+                    type="button"
+                    data-suite-id="suite-tripla-standard"
+                    aria-controls="suite-detail"
+                    aria-pressed="false"
+                  >
+                    <span>
+                      <span class="suite-option-name">Suíte tripla standard</span>
+                      <span class="suite-option-meta">16 m² · uma cama de casal e uma de solteiro</span>
+                    </span>
+                    <span class="suite-option-action">Ver detalhes</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    id="choose-suite-tripla-serra"
+                    class="suite-option"
+                    type="button"
+                    data-suite-id="suite-tripla-serra"
+                    aria-controls="suite-detail"
+                    aria-pressed="false"
+                  >
+                    <span>
+                      <span class="suite-option-name">Suíte tripla com vista para a serra</span>
+                      <span class="suite-option-meta">Categoria para três hóspedes · vista para a serra</span>
+                    </span>
+                    <span class="suite-option-action">Ver detalhes</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    id="choose-suite-quadrupla-standard"
+                    class="suite-option"
+                    type="button"
+                    data-suite-id="suite-quadrupla-standard"
+                    aria-controls="suite-detail"
+                    aria-pressed="false"
+                  >
+                    <span>
+                      <span class="suite-option-name">Suíte quádrupla standard</span>
+                      <span class="suite-option-meta">20 m² · categoria para quatro hóspedes</span>
+                    </span>
+                    <span class="suite-option-action">Ver detalhes</span>
+                  </button>
+                </li>
+              </ul>
+
+              <aside id="suite-detail" class="suite-detail" aria-labelledby="suite-detail-title">
+                <p id="suite-selection-status" class="detail-key" aria-live="polite">Nenhuma suíte selecionada.</p>
+                <h3 id="suite-detail-title">Escolha uma suíte para ver os detalhes</h3>
+                <p id="suite-detail-copy" class="suite-detail-copy">
+                  Todas as categorias publicadas incluem banheiro privativo com chuveiro, frigobar, TV de tela plana, guarda-roupa e Wi-Fi gratuito.
+                </p>
+                <ul id="suite-facts" class="suite-facts" aria-label="Detalhes da suíte">
+                  <li>Selecione uma categoria na lista.</li>
+                </ul>
+                <div class="suite-detail-actions">
+                  <button id="plan-with-suite" class="content-button" type="button" disabled>
+                    Planejar com esta suíte
+                  </button>
+                  <button id="clear-suite-selection" class="content-button content-button-secondary" type="button" disabled>
+                    Limpar seleção
+                  </button>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="antes-de-chegar"
+          class="content-section arrival-section"
+          data-section-role="practical-information"
+          data-section-purpose="Reunir horários, serviços e regras verificadas para preparar a chegada"
+          data-content-source="verified"
+          data-visual-section="true"
+        >
+          <div class="section-inner arrival-layout">
+            <figure class="place-photo-frame">
+              <img
+                class="place-photo"
+                data-site-visual
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
+                data-verified-src="https://serpapi.com/images/url/Ot19jHicHcTdboIwGADQJ6owSNa6ZBeWHyM6i1sQ8cZoxeIG_YCvFvUhvfdtTHYuzvNRGdPih-PUlT9SAKouL1j2ErQptRlJaBzV7xGJRGcS2LZulndvtf6lV3qTm8LoLp7CdyLFESNxY5ImextXrPgL3BB26yyjnTeLLPCuKOYBCeOc80WW-8FRENzyHxCLlG94c57Sczugus9Opy9lunYIUTAL78b3LIzzqK8vjc7TCNghnV93ycDGyzj7HN5c1yXV_5LoF84vSAg"
+                alt="Pousada Encanto de Tiradentes"
+                loading="eager"
+                decoding="async"
+                referrerpolicy="no-referrer"
+              >
+              <figcaption class="place-photo-caption">Imagem do estabelecimento</figcaption>
+            </figure>
+
+            <div class="arrival-copy">
+              <h2>Antes de chegar</h2>
+              <p class="arrival-intro">
+                Horários e informações práticas para organizar a estadia no Centro de Tiradentes.
+              </p>
+              <dl class="arrival-facts">
+                <div class="arrival-fact">
+                  <dt>Café da manhã</dt>
+                  <dd>Das 8h30 às 10h30.</dd>
+                </div>
+                <div class="arrival-fact">
+                  <dt>Entrada e saída</dt>
+                  <dd>Check-in das 14h às 21h30. Check-out das 8h às 12h.</dd>
+                </div>
+                <div class="arrival-fact">
+                  <dt>Recepção</dt>
+                  <dd>Das 8h às 21h30, com atendimento posterior por telefone ou WhatsApp.</dd>
+                </div>
+                <div class="arrival-fact">
+                  <dt>Na pousada</dt>
+                  <dd>Wi-Fi gratuito e estacionamento privativo sem custo.</dd>
+                </div>
+                <div class="arrival-fact">
+                  <dt>Pagamento</dt>
+                  <dd>Somente dinheiro ou Pix. Cartões e cheques não são aceitos.</dd>
+                </div>
+                <div class="arrival-fact">
+                  <dt>Durante a estadia</dt>
+                  <dd>Ambiente não fumante. Faxina e troca de toalhas a partir de três diárias; em períodos menores, o serviço deve ser solicitado.</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="planejar"
+          class="content-section planner-section"
+          data-section-role="planning"
+          data-section-purpose="Combinar suíte, datas pretendidas e hóspedes em um resumo editável para contato"
+          data-content-source="illustrative"
+          data-interactive-section="true"
+          data-reservation-layout="centered"
+        >
+          <div class="planner-inner">
+            <div class="planner-heading">
+              <h2>Prepare sua conversa com a pousada</h2>
+              <p>Organize as datas pretendidas, a quantidade de hóspedes e a suíte de interesse.</p>
+              <p id="planner-key" class="planner-key" aria-live="polite">Escolha uma suíte</p>
+            </div>
+
+            <form id="stay-planner" class="planner-form" data-reservation-form="true" novalidate>
+              <div class="field-grid">
+                <div class="field field-full">
+                  <label for="suite-interest">Suíte de interesse</label>
+                  <select id="suite-interest" name="suite-interest" required>
+                    <option value="">Escolha uma suíte</option>
+                    <option value="suite-dupla-serra">Suíte dupla com vista para a serra</option>
+                    <option value="suite-tripla-standard">Suíte tripla standard</option>
+                    <option value="suite-tripla-serra">Suíte tripla com vista para a serra</option>
+                    <option value="suite-quadrupla-standard">Suíte quádrupla standard</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="arrival-date">Data de entrada</label>
+                  <input
+                    id="arrival-date"
+                    name="arrival-date"
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="off"
+                    placeholder="aaaa-mm-dd"
+                    pattern="\d{4}-\d{2}-\d{2}"
+                    required
+                  >
+                </div>
+                <div class="field">
+                  <label for="departure-date">Data de saída</label>
+                  <input
+                    id="departure-date"
+                    name="departure-date"
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="off"
+                    placeholder="aaaa-mm-dd"
+                    pattern="\d{4}-\d{2}-\d{2}"
+                    required
+                  >
+                </div>
+                <div class="field field-full">
+                  <label for="guest-count">Hóspedes</label>
+                  <input
+                    id="guest-count"
+                    name="guest-count"
+                    type="number"
+                    inputmode="numeric"
+                    min="1"
+                    max="4"
+                    placeholder="1 a 4"
+                    required
+                  >
+                </div>
+              </div>
+              <p id="planner-message" class="planner-message" role="status" aria-live="polite"></p>
+              <button id="review-request" class="content-button planner-submit" type="submit">Revisar pedido</button>
+            </form>
+
+            <div id="contact-summary" class="contact-summary" aria-live="polite">
+              <h3>Resumo para contato</h3>
+              <p id="summary-empty" class="summary-empty">Seu resumo aparecerá aqui.</p>
+              <div id="summary-details" class="summary-details" hidden></div>
+              <div id="summary-actions" class="summary-actions" hidden>
+                <a
+                  id="summary-whatsapp-contact"
+                  class="content-button"
+                  href="https://wa.me/5532999122612"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Falar sobre disponibilidade</a>
+                <button id="edit-request" class="content-button content-button-secondary" type="button">Alterar escolhas</button>
+                <button id="clear-summary" class="content-button content-button-secondary" type="button">Limpar resumo</button>
+              </div>
+            </div>
+
+            <div id="contato" class="contact-options">
+              <h3>Outras formas de contato</h3>
+              <p>Telefone, e-mail e endereço verificados da pousada.</p>
+              <address class="contact-list">
+                <div class="contact-item">
+                  <span class="contact-label">Telefone</span>
+                  <a id="phone-contact" href="tel:+5532999122612">(32) 99912-2612</a>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-label">E-mail</span>
+                  <a id="email-contact" href="mailto:reservas@encantodetiradentes.com.br">reservas@encantodetiradentes.com.br</a>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-label">Endereço</span>
+                  Rua dos Inconfidentes, 218 — Centro, Tiradentes — MG
+                </div>
+              </address>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <div>
+            <p class="footer-credit">Conceito criado pela Orbian para Pousada Encanto de Tiradentes.</p>
+            <p class="footer-address">Rua dos Inconfidentes, 218 — Centro, Tiradentes — MG · 36325-000</p>
+          </div>
+          <nav class="footer-links" aria-label="Links do rodapé">
+            <a href="#suites">Suítes</a>
+            <a href="#antes-de-chegar">Antes de chegar</a>
+            <a href="#planejar">Planejar estadia</a>
+            <a href="https://www.encantodetiradentes.com.br/" target="_blank" rel="noopener noreferrer">Site oficial</a>
+          </nav>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      (() => {
+        const video = document.querySelector("#hero-media");
+        const mediaToggle = document.querySelector("#media-toggle");
+        const mediaLabel = mediaToggle?.querySelector(".media-toggle-label");
+        const menuToggle = document.querySelector("#menu-toggle");
+        const navigation = document.querySelector("#primary-navigation");
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        const placePhoto = document.querySelector(".place-photo");
+        const placePhotoCaption = document.querySelector(".place-photo-caption");
+        const suiteButtons = Array.from(document.querySelectorAll("[data-suite-id]"));
+        const suiteDetailTitle = document.querySelector("#suite-detail-title");
+        const suiteDetailCopy = document.querySelector("#suite-detail-copy");
+        const suiteFacts = document.querySelector("#suite-facts");
+        const suiteSelectionStatus = document.querySelector("#suite-selection-status");
+        const planWithSuite = document.querySelector("#plan-with-suite");
+        const clearSuiteSelection = document.querySelector("#clear-suite-selection");
+        const suiteInterest = document.querySelector("#suite-interest");
+        const plannerKey = document.querySelector("#planner-key");
+        const journeyKeyTag = document.querySelector("#journey-key-tag");
+        const stayPlanner = document.querySelector("#stay-planner");
+        const arrivalDate = document.querySelector("#arrival-date");
+        const departureDate = document.querySelector("#departure-date");
+        const guestCount = document.querySelector("#guest-count");
+        const plannerMessage = document.querySelector("#planner-message");
+        const summaryEmpty = document.querySelector("#summary-empty");
+        const summaryDetails = document.querySelector("#summary-details");
+        const summaryActions = document.querySelector("#summary-actions");
+        const summaryWhatsapp = document.querySelector("#summary-whatsapp-contact");
+        const editRequest = document.querySelector("#edit-request");
+        const clearSummary = document.querySelector("#clear-summary");
+
+        const suites = {
+          "suite-dupla-serra": {
+            name: "Suíte dupla com vista para a serra",
+            description: "Uma categoria de 14 m² com sacada privativa, cama de casal e ventilador de teto.",
+            facts: ["14 m²", "Sacada privativa", "Cama de casal", "Ventilador de teto"]
+          },
+          "suite-tripla-standard": {
+            name: "Suíte tripla standard",
+            description: "Uma categoria de 16 m² com uma cama de casal e uma cama de solteiro.",
+            facts: ["16 m²", "Uma cama de casal", "Uma cama de solteiro"]
+          },
+          "suite-tripla-serra": {
+            name: "Suíte tripla com vista para a serra",
+            description: "Categoria publicada para três hóspedes, com vista para a serra.",
+            facts: ["Categoria para três hóspedes", "Vista para a serra"]
+          },
+          "suite-quadrupla-standard": {
+            name: "Suíte quádrupla standard",
+            description: "Uma categoria de 20 m² publicada para quatro hóspedes.",
+            facts: ["20 m²", "Categoria para quatro hóspedes"]
+          }
+        };
+
+        const sharedSuiteFacts = [
+          "Banheiro privativo com chuveiro",
+          "Frigobar e TV de tela plana",
+          "Guarda-roupa",
+          "Wi-Fi gratuito"
+        ];
+
+        let selectedSuiteId = "";
+
+        if (placePhoto?.dataset.verifiedSrc) {
+          placePhoto.addEventListener("error", () => {
+            placePhoto.hidden = true;
+            if (placePhotoCaption) placePhotoCaption.textContent = "Imagem indisponível";
+          }, { once: true });
+          placePhoto.src = placePhoto.dataset.verifiedSrc;
+        }
+
+        const setVideoState = (isPlaying) => {
+          if (!mediaToggle || !mediaLabel) return;
+          mediaToggle.dataset.state = isPlaying ? "playing" : "paused";
+          mediaToggle.setAttribute("aria-pressed", isPlaying ? "false" : "true");
+          mediaLabel.textContent = isPlaying ? "Pausar vídeo" : "Retomar vídeo";
+        };
+
+        const applyMotionPreference = () => {
+          if (!video) return;
+          if (reducedMotion.matches) {
+            video.pause();
+            video.removeAttribute("autoplay");
+            setVideoState(false);
+            return;
+          }
+          video.setAttribute("autoplay", "");
+          video.play().then(() => setVideoState(true)).catch(() => setVideoState(false));
+        };
+
+        mediaToggle?.addEventListener("click", () => {
+          if (!video) return;
+          if (video.paused) {
+            video.play().then(() => setVideoState(true)).catch(() => setVideoState(false));
+          } else {
+            video.pause();
+            setVideoState(false);
+          }
+        });
+
+        menuToggle?.addEventListener("click", () => {
+          if (!navigation) return;
+          const isOpen = navigation.dataset.open === "true";
+          navigation.dataset.open = String(!isOpen);
+          menuToggle.setAttribute("aria-expanded", String(!isOpen));
+        });
+
+        navigation?.addEventListener("click", (event) => {
+          if (!(event.target instanceof HTMLAnchorElement) || !menuToggle) return;
+          navigation.dataset.open = "false";
+          menuToggle.setAttribute("aria-expanded", "false");
+        });
+
+        const setKeyState = (text) => {
+          if (plannerKey) plannerKey.textContent = text;
+          if (journeyKeyTag) journeyKeyTag.textContent = text;
+        };
+
+        const renderSuite = (suiteId, options = {}) => {
+          const suite = suites[suiteId];
+          if (!suite || !suiteFacts || !suiteDetailTitle || !suiteDetailCopy || !suiteSelectionStatus) return;
+
+          selectedSuiteId = suiteId;
+          suiteButtons.forEach((button) => {
+            const isSelected = button.dataset.suiteId === suiteId;
+            button.setAttribute("aria-pressed", String(isSelected));
+            const action = button.querySelector(".suite-option-action");
+            if (action) action.textContent = isSelected ? "Suíte escolhida" : "Ver detalhes";
+          });
+
+          suiteDetailTitle.textContent = suite.name;
+          suiteDetailCopy.textContent = suite.description;
+          suiteSelectionStatus.textContent = suite.name;
+          suiteFacts.replaceChildren();
+          [...suite.facts, ...sharedSuiteFacts].forEach((fact) => {
+            const item = document.createElement("li");
+            item.textContent = fact;
+            suiteFacts.append(item);
+          });
+
+          if (planWithSuite) planWithSuite.disabled = false;
+          if (clearSuiteSelection) clearSuiteSelection.disabled = false;
+          if (suiteInterest) suiteInterest.value = suiteId;
+          setKeyState(suite.name);
+
+          if (options.focusDetail) suiteDetailTitle.focus?.();
+        };
+
+        const resetSuite = () => {
+          selectedSuiteId = "";
+          suiteButtons.forEach((button) => {
+            button.setAttribute("aria-pressed", "false");
+            const action = button.querySelector(".suite-option-action");
+            if (action) action.textContent = "Ver detalhes";
+          });
+
+          if (suiteDetailTitle) suiteDetailTitle.textContent = "Escolha uma suíte para ver os detalhes";
+          if (suiteDetailCopy) {
+            suiteDetailCopy.textContent = "Todas as categorias publicadas incluem banheiro privativo com chuveiro, frigobar, TV de tela plana, guarda-roupa e Wi-Fi gratuito.";
+          }
+          if (suiteSelectionStatus) suiteSelectionStatus.textContent = "Nenhuma suíte selecionada.";
+          if (suiteFacts) {
+            suiteFacts.replaceChildren();
+            const item = document.createElement("li");
+            item.textContent = "Selecione uma categoria na lista.";
+            suiteFacts.append(item);
+          }
+          if (planWithSuite) planWithSuite.disabled = true;
+          if (clearSuiteSelection) clearSuiteSelection.disabled = true;
+          if (suiteInterest) suiteInterest.value = "";
+          setKeyState("Escolha uma suíte");
+        };
+
+        suiteButtons.forEach((button) => {
+          button.addEventListener("click", () => renderSuite(button.dataset.suiteId));
+        });
+
+        planWithSuite?.addEventListener("click", () => {
+          if (!selectedSuiteId || !suiteInterest) return;
+          suiteInterest.value = selectedSuiteId;
+          document.querySelector("#planejar")?.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth" });
+          suiteInterest.focus({ preventScroll: true });
+        });
+
+        clearSuiteSelection?.addEventListener("click", () => {
+          resetSuite();
+          suiteButtons[0]?.focus();
+        });
+
+        suiteInterest?.addEventListener("change", () => {
+          if (suiteInterest.value) {
+            renderSuite(suiteInterest.value);
+          } else {
+            resetSuite();
+          }
+        });
+
+        const formatDate = (value) => {
+          const date = new Date(`${value}T12:00:00`);
+          return new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "long", year: "numeric" }).format(date);
+        };
+
+        const clearRenderedSummary = () => {
+          if (summaryDetails) {
+            summaryDetails.replaceChildren();
+            summaryDetails.hidden = true;
+          }
+          if (summaryActions) summaryActions.hidden = true;
+          if (summaryEmpty) summaryEmpty.hidden = false;
+          if (plannerMessage) plannerMessage.textContent = "";
+        };
+
+        stayPlanner?.addEventListener("submit", (event) => {
+          event.preventDefault();
+          if (!suiteInterest || !arrivalDate || !departureDate || !guestCount || !plannerMessage) return;
+
+          if (!suiteInterest.value || !arrivalDate.value || !departureDate.value || !guestCount.value) {
+            plannerMessage.dataset.state = "error";
+            plannerMessage.textContent = "Preencha a suíte, as duas datas e a quantidade de hóspedes.";
+            const firstMissing = [suiteInterest, arrivalDate, departureDate, guestCount].find((field) => !field.value);
+            firstMissing?.focus();
+            return;
+          }
+
+          const isoDate = /^\d{4}-\d{2}-\d{2}$/;
+          if (!isoDate.test(arrivalDate.value) || !isoDate.test(departureDate.value)) {
+            plannerMessage.dataset.state = "error";
+            plannerMessage.textContent = "Informe as datas no formato ano-mês-dia.";
+            (!isoDate.test(arrivalDate.value) ? arrivalDate : departureDate).focus();
+            return;
+          }
+
+          if (departureDate.value <= arrivalDate.value) {
+            plannerMessage.dataset.state = "error";
+            plannerMessage.textContent = "A data de saída deve ser posterior à data de entrada.";
+            departureDate.focus();
+            return;
+          }
+
+          const suite = suites[suiteInterest.value];
+          if (!suite || !summaryDetails || !summaryEmpty || !summaryActions || !summaryWhatsapp) return;
+
+          plannerMessage.dataset.state = "success";
+          plannerMessage.textContent = "Resumo preparado para revisão.";
+          summaryDetails.replaceChildren();
+          [
+            `Suíte de interesse: ${suite.name}`,
+            `Entrada pretendida: ${formatDate(arrivalDate.value)}`,
+            `Saída pretendida: ${formatDate(departureDate.value)}`,
+            `${guestCount.value} ${guestCount.value === "1" ? "hóspede" : "hóspedes"}`
+          ].forEach((line) => {
+            const item = document.createElement("p");
+            item.textContent = line;
+            summaryDetails.append(item);
+          });
+
+          const message = [
+            "Olá! Gostaria de falar sobre disponibilidade.",
+            `Suíte de interesse: ${suite.name}.`,
+            `Entrada pretendida: ${formatDate(arrivalDate.value)}.`,
+            `Saída pretendida: ${formatDate(departureDate.value)}.`,
+            `Hóspedes: ${guestCount.value}.`
+          ].join(" ");
+          summaryWhatsapp.href = `https://wa.me/5532999122612?text=${encodeURIComponent(message)}`;
+          summaryEmpty.hidden = true;
+          summaryDetails.hidden = false;
+          summaryActions.hidden = false;
+          setKeyState("Resumo para contato");
+          document.querySelector("#contact-summary")?.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "center" });
+        });
+
+        editRequest?.addEventListener("click", () => {
+          arrivalDate?.focus();
+          stayPlanner?.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "center" });
+        });
+
+        clearSummary?.addEventListener("click", () => {
+          stayPlanner?.reset();
+          clearRenderedSummary();
+          resetSuite();
+          if (plannerMessage) {
+            plannerMessage.dataset.state = "neutral";
+            plannerMessage.textContent = "Resumo limpo. Escolha uma suíte para começar novamente.";
+          }
+          suiteInterest?.focus();
+        });
+
+        if (typeof reducedMotion.addEventListener === "function") {
+          reducedMotion.addEventListener("change", applyMotionPreference);
+        } else {
+          reducedMotion.addListener(applyMotionPreference);
+        }
+
+        applyMotionPreference();
+      })();
+    </script>
+  </body>
+</html>
